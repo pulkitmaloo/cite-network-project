@@ -1,0 +1,17 @@
+•	Some articles in the bibtex file do not have visible Isaac’s work in it’s cited-references field. I don’t understand why we got these articles in the search results, I’ll analyze it more to be 100% sure. But if this is the case, should I remove these articles?
+----- not the first author
+
+•	Some articles in the bibtex file may cite Isaac’s work which isn’t present in the XML file you gave me (123 records). What should I do in this case?
+----- Is it the same isaac
+
+•	Some articles have cited more than one of Isaac’s paper. Do you want a different entry for each citation.
+----- one entry
+
+• //done	Isaac has also been citing himself. Should the csv file contain these entries also?
+----- ignore
+
+•	Some articles have cited some Isaac’s work whose title is missing. What should I do in this case?
+----- keep them now, find later using other information
+
+•	Some articles have missing metadata in the bibtex file. This will result in a csv file with some missing values.
+----- insert NULL
