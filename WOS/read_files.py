@@ -3,29 +3,30 @@
 @author: PulkitMaloo
 """
 import bibtexparser
+import json
+import os
 
 
 def getfilename():
-    for i in range(39):
-        yield "files/savedrecs (" + str(i) + ").bib"
+    curr_path = os.getcwd()
+    files_path = os.path.join(curr_path,'files')
+    file_names = ["files/" + fname for fname in os.listdir(files_path)]
+    return file_names
 
 
 def read_bibtex(fname):
     with open(fname, "r") as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file)
-    return bib_database
+        return bib_database
 
 
 def read_file():
     for fname in getfilename():
-        try:
-            bib_db = read_bibtex(fname)
-            print "Successfuly read " + str(len(bib_db.entries)) + \
-                  " articles from", fname
-            yield bib_db.entries
-        except:
-#            print "file not found:", fname
-            pass
+        if "saved" not in fname:
+            continue
+        bib_db = read_bibtex(fname)
+#        print("Read", len(bib_db.entries), "articles from", fname)
+        yield bib_db.entries
 
 
 def read_article():
@@ -41,9 +42,20 @@ def isaac_names():
             names_str = fhand.read().strip().lower()
         return [n.strip() for n in names_str.split("or")]
     except:
-        print "File not found:", fname
+        print("File not found:", fname)
+
+
+def abbreviations():
+    fname = "Abbreviations/abbreviations.txt"
+    try:
+        with open(fname, "r") as fhand:
+            abbr = json.loads(fhand.read())
+            return abbr
+    except:
+        print("File not found:", fname)
+
 
 if __name__ == "__main__":
     for x in read_article():
         pass
-    print isaac_names()
+#    print isaac_names()

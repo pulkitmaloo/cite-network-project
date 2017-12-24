@@ -11,6 +11,7 @@ import csv
 infile = 'Isaac_Citations_Library.xml'
 outfile = 'Isaac_Citations_Library.csv'
 
+
 def read_file_as_dict(fname):
     import xmltodict
     with open(infile,"r") as fhand:
@@ -18,34 +19,19 @@ def read_file_as_dict(fname):
     xdict = xmltodict.parse(xml_str)
     return xdict["xml"]["records"]["record"]
 
+
 def read_file_as_xml(fname):
     tree = ET.parse(infile)
     root = tree.getroot()
     records = root.findall('records/record')
-    print len(records), "records found"
+    print(len(records), "records found")
     return records
-#    for record in records:
-#        yield record
 
 
 def parse_records_as_xml(records):
     for i, record in enumerate(records):
         count = 0
-        print type(record)
-#        for node in record:
-#            print i, node.tag,
-#            for sub_node in node.getchildren():
-#                print sub_node.tag,
-#                for sub_node2 in sub_node.getchildren():
-#                    print sub_node2.tag,
-#                    for sub_node3 in sub_node2.getchildren():
-#                        print sub_node3.tag
-#                        break
-#            count += 1
-#            print
-#        print i, count
-#        if i == 5:
-#            break
+
 
 if __name__=="__main__":
     records = read_file_as_xml(infile)

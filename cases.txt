@@ -1,4 +1,4 @@
-•	Some articles in the bibtex file do not have visible Isaac’s work in it’s cited-references field. I don’t understand why we got these articles in the search results, I’ll analyze it more to be 100% sure. But if this is the case, should I remove these articles?
+•	Some articles in the bibtex file do not have visible Isaac’s work in it’s cited-references field.
 ----- not the first author
 
 •	Some articles in the bibtex file may cite Isaac’s work which isn’t present in the XML file you gave me (123 records). What should I do in this case?
@@ -15,3 +15,23 @@
 
 •	Some articles have missing metadata in the bibtex file. This will result in a csv file with some missing values.
 ----- insert NULL
+
+
+===============================================
+### Refine initial search to only 123 records
+    ---   very difficult to find which isaac work because
+            firstly, isaac may be the second author
+            secondly, not much information available
+            third, even title is in abbreviated version
+        print next(read_article())["cited-references"]
+
+### Have -
+        Title
+        Year
+        Unique - ID
+        ID
+        Entrytype
+    Missing -
+        DOI
+        Author (4 anon, 5 missing) have title for all of them
+        journal (174)

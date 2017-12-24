@@ -2,3 +2,6 @@ https://libraries.indiana.edu/resources/wos
 
 fbaskin@umail.iu.edu
 GlynnIsaac-2018!
+
+### Sort by Times Cited -- highest to lowest
+### Change Show to 50 per page
